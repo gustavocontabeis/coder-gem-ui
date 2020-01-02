@@ -8,9 +8,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 import {MenuItem, MessageService, ConfirmationService} from 'primeng/api';
 import { HomeComponent } from './home/home.component';                 //api
-import { PanelModule } from 'node_modules/primeng/panel';
 import { PessoaComponent } from './pessoa/pessoa.component';	
 import { PessoaService } from './pessoa/pessoa.service';
+import {ToastModule} from 'primeng/toast';
+import {MenubarModule} from 'primeng/menubar';
+import {PanelModule} from 'primeng/panel';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { PessoaService } from './pessoa/pessoa.service';
     BrowserAnimationsModule,
     HttpClientModule,
     AccordionModule,
-    PanelModule
+    PanelModule,
+    ToastModule,
+    MenubarModule
   ],
   providers: [MessageService, ConfirmationService, PessoaService],
   bootstrap: [AppComponent]
