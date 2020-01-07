@@ -27,7 +27,7 @@
                 <td>{{pessoa.altura}}</td>
                 <td>{{pessoa.salario}}</td>
                 <td>{{pessoa.ativo}}</td>
-                <td>{{pessoa.dataDeNacimento}}</td>
+                <td>{{pessoa.dataDeNacimento | date: 'dd/MM/yyyy'}}</td>
                 <td>
                     <button type="button" pButton icon="pi pi-pencil" (click)="exibirModal(pessoa)" title="Selecionar"></button>
                 </td>
@@ -44,7 +44,7 @@
                 <label for="id">Id</label>
             </div>
             <div class="ui-g-8">
-                <input id="id" [(ngModel)]="pessoa.id" />
+                <input id="id" pInputText [(ngModel)]="pessoa.id" />
             </div>
         </div>
         <div class="ui-g-12">
@@ -52,7 +52,7 @@
                 <label for="id">Nome</label>
             </div>
             <div class="ui-g-8">
-                <input id="id" [(ngModel)]="pessoa.nome" />
+                <input id="id" pInputText [(ngModel)]="pessoa.nome" />
             </div>
         </div>
         <div class="ui-g-12">
@@ -60,7 +60,7 @@
                 <label for="id">Genero</label>
             </div>
             <div class="ui-g-8">
-                <input id="id" [(ngModel)]="pessoa.genero" />
+                <input id="id" pInputText [(ngModel)]="pessoa.genero" />
             </div>
         </div>
         <div class="ui-g-12">
@@ -68,7 +68,7 @@
                 <label for="id">Altura</label>
             </div>
             <div class="ui-g-8">
-                <input id="id" [(ngModel)]="pessoa.altura" />
+                <input id="id" pInputText [(ngModel)]="pessoa.altura" />
             </div>
         </div>
         <div class="ui-g-12">
@@ -76,7 +76,7 @@
                 <label for="id">Salario</label>
             </div>
             <div class="ui-g-8">
-                <input id="id" [(ngModel)]="pessoa.salario" />
+                <input id="id" pInputText [(ngModel)]="pessoa.salario" />
             </div>
         </div>
         <div class="ui-g-12">
@@ -84,7 +84,7 @@
                 <label for="id">Ativo</label>
             </div>
             <div class="ui-g-8">
-                <input id="id" [(ngModel)]="pessoa.ativo" />
+                <input id="id" pInputText [(ngModel)]="pessoa.ativo" />
             </div>
         </div>
         <div class="ui-g-12">
@@ -92,7 +92,7 @@
                 <label for="id">Data de nacimento</label>
             </div>
             <div class="ui-g-8">
-                <input id="id" [(ngModel)]="pessoa.dataDeNacimento" />
+                <p-calendar id="id" [(ngModel)]="pessoa.dataDeNacimento" dateFormat="dd/mm/yy"></p-calendar>
             </div>
         </div>
     </div>

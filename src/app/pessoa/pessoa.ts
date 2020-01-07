@@ -5,5 +5,5 @@ export class Pessoa {
 	altura: number;
 	salario: number;
 	ativo: boolean;
-	dataDeNacimento: string;
+	dataDeNacimento: Date;
 }
