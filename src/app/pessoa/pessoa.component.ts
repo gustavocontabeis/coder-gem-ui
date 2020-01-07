@@ -31,7 +31,9 @@ export class PessoaComponent implements OnInit {
 
   consultar() {
     this.pessoaService.consultar().subscribe(resposta => {
+      console.log(resposta);
       this.pessoas = resposta as Pessoa[];
+      console.log(this.pessoas);
     }, error => {
       console.log(error);
       alert('erro pessoas.' + error);

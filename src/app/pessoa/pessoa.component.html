@@ -27,7 +27,7 @@
                 <td>{{pessoa.altura}}</td>
                 <td>{{pessoa.salario}}</td>
                 <td>{{pessoa.ativo}}</td>
-                <td>{{pessoa.dataDeNacimento | date: 'dd/MM/yyyy'}}</td>
+                <td>{{pessoa.dataDeNacimento | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
                 <td>
                     <button type="button" pButton icon="pi pi-pencil" (click)="exibirModal(pessoa)" title="Selecionar"></button>
                 </td>
