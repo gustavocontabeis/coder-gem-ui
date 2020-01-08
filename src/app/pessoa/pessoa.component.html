@@ -40,59 +40,75 @@
     [style]="{width: '400px'}">
     <div class="ui-g ui-fluid" *ngIf="pessoa">
         <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="id">Id</label>
+            <div class="ui-g-4 label">
+                <label id="label-id" for="id">Id</label>
             </div>
-            <div class="ui-g-8">
-                <input id="id" pInputText [(ngModel)]="pessoa.id" />
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="id">Nome</label>
-            </div>
-            <div class="ui-g-8">
-                <input id="id" pInputText [(ngModel)]="pessoa.nome" />
+            <div class="ui-g-8 input">
+                <input id="id" pKeyFilter="int" placeholder="Id" [(ngModel)]="pessoa.id">
             </div>
         </div>
         <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="id">Genero</label>
+            <div class="ui-g-4 label">
+                <label id="label-nome" for="nome">Nome</label>
             </div>
-            <div class="ui-g-8">
-                <input id="id" pInputText [(ngModel)]="pessoa.genero" />
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="id">Altura</label>
-            </div>
-            <div class="ui-g-8">
-                <input id="id" pInputText [(ngModel)]="pessoa.altura" />
+            <div class="ui-g-8 input">
+                <input id="nome" pInputText placeholder="Nome" [(ngModel)]="pessoa.nome">
             </div>
         </div>
         <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="id">Salario</label>
+            <div class="ui-g-4 label">
+                <label id="label-genero" for="genero">Genero</label>
             </div>
-            <div class="ui-g-8">
-                <input id="id" pInputText [(ngModel)]="pessoa.salario" />
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="id">Ativo</label>
-            </div>
-            <div class="ui-g-8">
-                <input id="id" pInputText [(ngModel)]="pessoa.ativo" />
+            <div class="ui-g-8 input">
+                <input id="genero" pInputText placeholder="Genero" [(ngModel)]="pessoa.genero">
             </div>
         </div>
         <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="id">Data de nacimento</label>
+            <div class="ui-g-4 label">
+                <label id="label-altura" for="altura">Altura</label>
             </div>
-            <div class="ui-g-8">
-                <p-calendar id="id" [(ngModel)]="pessoa.dataDeNacimento" dateFormat="dd/mm/yy"></p-calendar>
+            <div class="ui-g-8 input">
+                <input id="altura" pInputText placeholder="Altura" [(ngModel)]="pessoa.altura">
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 label">
+                <label id="label-salario" for="salario">Salario</label>
+            </div>
+            <div class="ui-g-8 input">
+                <input id="salario" pInputText placeholder="Salario" [(ngModel)]="pessoa.salario">
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 label">
+                <label id="label-ativo" for="ativo">Ativo</label>
+            </div>
+            <div class="ui-g-8 input">
+                <input id="ativo" pKeyFilter="int" placeholder="Ativo" [(ngModel)]="pessoa.ativo">
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 label">
+                <label id="label-dataDeNacimento" for="dataDeNacimento">Data de nacimento</label>
+            </div>
+            <div class="ui-g-8 input">
+                <p-calendar id="dataDeNacimento" dateFormat="dd/mm/yy" [(ngModel)]="pessoa.dataDeNacimento"></p-calendar>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 label">
+                <label id="label-mae" for="mae">Mae</label>
+            </div>
+            <div class="ui-g-8 input">
+                <input id="mae" pInputText placeholder="Mae" [(ngModel)]="pessoa.mae">
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 label">
+                <label id="label-filhos" for="filhos">Filhos</label>
+            </div>
+            <div class="ui-g-8 input">
+                <input id="filhos" pInputText placeholder="Filhos" [(ngModel)]="pessoa.filhos">
             </div>
         </div>
     </div>
