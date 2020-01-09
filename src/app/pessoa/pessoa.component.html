@@ -24,9 +24,9 @@
                 <td>{{pessoa.id}}</td>
                 <td>{{pessoa.nome}}</td>
                 <td>{{pessoa.genero}}</td>
-                <td>{{pessoa.altura}}</td>
-                <td>{{pessoa.salario}}</td>
-                <td>{{pessoa.ativo}}</td>
+                <td style="text-align: right;">{{pessoa.altura | number }}</td>
+                <td style="text-align: right;">{{pessoa.salario | currency:'BRL':true:'1.2-2'}}</td>
+                <td style="text-align: center;">{{pessoa.ativo?'Sim':'Não'}}</td>
                 <td>{{pessoa.dataDeNacimento | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
                 <td>
                     <button type="button" pButton icon="pi pi-pencil" (click)="exibirModal(pessoa)" title="Selecionar"></button>
@@ -37,7 +37,7 @@
 
 </p-panel>
 <p-dialog header="Usuário" [(visible)]="exibirDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade" [modal]="true"
-    [style]="{width: '400px'}">
+    [style]="{width: '800px', height: '600px'}">
     <div class="ui-g ui-fluid" *ngIf="pessoa">
         <div class="ui-g-12">
             <div class="ui-g-4 label">
@@ -52,7 +52,7 @@
                 <label id="label-nome" for="nome">Nome</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="nome" pInputText placeholder="Nome" [(ngModel)]="pessoa.nome">
+                <input id="nome" pInputText placeholder="Nome" [(ngModel)]="pessoa.nome" [required]="true">
             </div>
         </div>
         <div class="ui-g-12">
@@ -84,7 +84,7 @@
                 <label id="label-ativo" for="ativo">Ativo</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="ativo" pKeyFilter="int" placeholder="Ativo" [(ngModel)]="pessoa.ativo">
+                <p-checkbox id="ativo" binary="true" [(ngModel)]="pessoa.ativo"></p-checkbox>
             </div>
         </div>
         <div class="ui-g-12">
@@ -92,7 +92,7 @@
                 <label id="label-dataDeNacimento" for="dataDeNacimento">Data de nacimento</label>
             </div>
             <div class="ui-g-8 input">
-                <p-calendar id="dataDeNacimento" dateFormat="dd/mm/yy" [(ngModel)]="pessoa.dataDeNacimento"></p-calendar>
+                <p-calendar id="dataDeNacimento" dateFormat="dd/mm/yy" showTime="true" hourFormat="24" [(ngModel)]="pessoa.dataDeNacimento"></p-calendar>
             </div>
         </div>
         <div class="ui-g-12">

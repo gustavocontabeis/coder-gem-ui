@@ -6,6 +6,7 @@ import { PessoaComponent } from './pessoa/pessoa.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'pessoa', component: PessoaComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

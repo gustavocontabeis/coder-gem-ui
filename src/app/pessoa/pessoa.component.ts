@@ -48,6 +48,8 @@ export class PessoaComponent implements OnInit {
   exibirModal(pessoa: Pessoa) {
     this.novoRegistro = true;
     this.exibirDialog = true;
+    pessoa.dataDeNacimento = new Date();//TODO
+    console.log('exibirModal', pessoa);
     this.pessoa = pessoa;
   }
 

@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
 import {InputTextModule} from 'primeng/inputtext';
+import {CheckboxModule} from 'primeng/checkbox';
+import {InputMaskModule} from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {InputTextModule} from 'primeng/inputtext';
     FormsModule,
     ButtonModule,
     CalendarModule,
-    InputTextModule
+    InputTextModule,
+    CheckboxModule,
+    InputMaskModule
   ],
   providers: [MessageService, ConfirmationService, PessoaService],
   bootstrap: [AppComponent]
