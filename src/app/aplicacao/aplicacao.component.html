@@ -1,0 +1,62 @@
+<div>
+    <p-toast></p-toast>
+    <p-menubar>
+        <button type="button" pButton="" icon="pi pi-plus" (click)="novo()" label="Novo"></button>
+    </p-menubar>
+    <br>
+    <p-panel header="Aplicacoes">
+        <p-table [value]="aplicacoes" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header">
+                <tr class="coder-colunas-titulos">
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-aplicacao="">
+                <tr>
+                    <td style="text-align: right;">{{aplicacao.id}}</td>
+                    <td>{{aplicacao.nome}}</td>
+                    <td>
+                        <button type="button" pButton icon="pi pi-pencil" (click)="exibirModal(aplicacao)"
+                            title="Selecionar"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-panel>
+    <p-dialog header="Aplicação" [(visible)]="exibirDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade"
+        [modal]="true" [style]="{width: '800px', height: '600px'}">
+        <div class="ui-g ui-fluid" *ngIf="aplicacao">
+            <div class="ui-g-12">
+                <div class="ui-g-4 label">
+                    <label id="label-id" for="id">Id</label>
+                </div>
+                <div class="ui-g-8 input">
+                    <input id="id" pKeyFilter="int" placeholder="Id" [(ngModel)]="aplicacao.id" [required]="true">
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4 label">
+                    <label id="label-nome" for="nome">Nome</label>
+                </div>
+                <div class="ui-g-8 input">
+                    <input id="nome" pInputText placeholder="Nome" [(ngModel)]="aplicacao.nome" [required]="true">
+                </div>
+            </div>
+        </div>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                <button type="button" pButton="" icon="pi pi-check" (click)="salvar()" label="Salvar"></button>
+                <button type="button" pButton="" icon="pi pi-times" (click)="confirmarExcluir()" label="Excluir"
+                    class="ui-button-secondary" *ngIf="aplicacao.id"></button>
+            </div>
+        </p-footer>
+    </p-dialog>
+    <p-confirmDialog #cd header="Confirmação" icon="pi pi-exclamation-triangle">
+        <p-footer>
+            <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+            <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+        </p-footer>
+    </p-confirmDialog>
+</div>

@@ -21,12 +21,20 @@ import {CalendarModule} from 'primeng/calendar';
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
 import {InputMaskModule} from 'primeng/inputmask';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { HeaderComponent } from './header/header.component';
+import { AplicacaoComponent } from './aplicacao/aplicacao.component';
+import { EntidadeComponent } from './entidade/entidade.component';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PessoaComponent
+    PessoaComponent,
+    HeaderComponent,
+    AplicacaoComponent,
+    EntidadeComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,9 @@ import {InputMaskModule} from 'primeng/inputmask';
     CalendarModule,
     InputTextModule,
     CheckboxModule,
-    InputMaskModule
+    InputMaskModule,
+    ConfirmDialogModule,
+    DropdownModule
   ],
   providers: [MessageService, ConfirmationService, PessoaService],
   bootstrap: [AppComponent]

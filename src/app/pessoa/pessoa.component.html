@@ -24,7 +24,7 @@
                 <td>{{pessoa.id}}</td>
                 <td>{{pessoa.nome}}</td>
                 <td>{{pessoa.genero}}</td>
-                <td style="text-align: right;">{{pessoa.altura | number }}</td>
+                <td style="text-align: right;">{{pessoa.altura | number : '1.3-3' }}</td>
                 <td style="text-align: right;">{{pessoa.salario | currency:'BRL':true:'1.2-2'}}</td>
                 <td style="text-align: center;">{{pessoa.ativo?'Sim':'Não'}}</td>
                 <td>{{pessoa.dataDeNacimento | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
