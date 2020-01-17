@@ -15,7 +15,7 @@ export class PessoaComponent implements OnInit {
   pessoas: Pessoa[];
   exibirDialog: boolean;
   novoRegistro: boolean;
-  tiposPessoa: SelectItem[] = [];
+  generos: SelectItem[] = [];
 
   constructor(
     private messageService: MessageService,
@@ -27,6 +27,12 @@ export class PessoaComponent implements OnInit {
     this.novoRegistro = false;
     this.consultar();
     this.pessoa = new Pessoa();
+    this.pessoa.genero = null;
+    this.generos = [
+      {label: 'Selecione', value: null},
+      {label: 'M', value: 'M'},
+      {label: 'F', value: 'F'}
+    ];
   }
 
   consultar() {

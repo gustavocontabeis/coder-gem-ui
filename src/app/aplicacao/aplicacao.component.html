@@ -18,38 +18,39 @@
                     <td style="text-align: right;">{{aplicacao.id}}</td>
                     <td>{{aplicacao.nome}}</td>
                     <td>
-                        <button type="button" pButton icon="pi pi-pencil" (click)="exibirModal(aplicacao)"
-                            title="Selecionar"></button>
+                        <button type="button" pButton icon="pi pi-pencil" (click)="exibirModal(aplicacao)" title="Selecionar"></button>
+                        <button type="button" pButton icon="pi pi-arrow-right" (click)="entidades(aplicacao)" title="Entidades" style="margin-left: 5px;"></button>
                     </td>
                 </tr>
             </ng-template>
         </p-table>
     </p-panel>
-    <p-dialog header="Aplicação" [(visible)]="exibirDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade"
-        [modal]="true" [style]="{width: '800px', height: '600px'}">
-        <div class="ui-g ui-fluid" *ngIf="aplicacao">
-            <div class="ui-g-12">
-                <div class="ui-g-4 label">
-                    <label id="label-id" for="id">Id</label>
+    <p-dialog header="Aplicação" [(visible)]="exibirDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade" [modal]="true"
+        [style]="{width: '800px', height: '600px'}">
+        <form #aplicacaoForm="ngForm" (ngSubmit)="onSubmit(aplicacaoForm)">
+            <div class="ui-g ui-fluid" *ngIf="aplicacao">
+                <div class="ui-g-12">
+                    <div class="ui-g-4 label">
+                        <label id="label-id" for="id">Id</label>
+                    </div>
+                    <div class="ui-g-8 input">
+                        <input id="id" name="id" #id="ngModel" pInputText pKeyFilter="int" placeholder="Id" [(ngModel)]="aplicacao.id" [required]="false" pattern="^\d+$">
+                    </div>
                 </div>
-                <div class="ui-g-8 input">
-                    <input id="id" pKeyFilter="int" placeholder="Id" [(ngModel)]="aplicacao.id" [required]="true">
+                <div class="ui-g-12">
+                    <div class="ui-g-4 label">
+                        <label id="label-nome" for="nome">Nome</label>
+                    </div>
+                    <div class="ui-g-8 input">
+                        <input id="nome" name="nome" #nome="ngModel" pInputText placeholder="Nome" [(ngModel)]="aplicacao.nome" [required]="true">
+                    </div>
                 </div>
             </div>
-            <div class="ui-g-12">
-                <div class="ui-g-4 label">
-                    <label id="label-nome" for="nome">Nome</label>
-                </div>
-                <div class="ui-g-8 input">
-                    <input id="nome" pInputText placeholder="Nome" [(ngModel)]="aplicacao.nome" [required]="true">
-                </div>
-            </div>
-        </div>
+        </form>
         <p-footer>
             <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                <button type="button" pButton="" icon="pi pi-check" (click)="salvar()" label="Salvar"></button>
-                <button type="button" pButton="" icon="pi pi-times" (click)="confirmarExcluir()" label="Excluir"
-                    class="ui-button-secondary" *ngIf="aplicacao.id"></button>
+                <button pButton icon="pi pi-check" (click)="salvar()" label="Salvar" [disabled]="!aplicacaoForm.valid"></button>
+                <button pButton icon="pi pi-times" (click)="confirmarExcluir()" label="Excluir" class="ui-button-secondary" *ngIf="aplicacao.id"></button>
             </div>
         </p-footer>
     </p-dialog>

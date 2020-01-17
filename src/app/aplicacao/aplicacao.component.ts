@@ -3,6 +3,7 @@ import { Aplicacao } from './aplicacao';
 import { MessageService, ConfirmationService, SelectItem } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { AplicacaoService } from './aplicacao.service';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-aplicacao',
@@ -18,6 +19,7 @@ export class AplicacaoComponent implements OnInit {
   tiposAplicacao: SelectItem[] = [];
 
   constructor(
+    private router: Router,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private aplicacaoService: AplicacaoService) { }
@@ -90,6 +92,11 @@ export class AplicacaoComponent implements OnInit {
 
   aoSelecionar(event) {
     this.novoRegistro = false;
+  }
+
+  entidades(aplicacao: Aplicacao){
+    console.log(aplicacao);
+    this.router.navigate(['/entidade/aplicacao', aplicacao.id]);
   }
 
 }

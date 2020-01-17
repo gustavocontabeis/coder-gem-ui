@@ -1,0 +1,17 @@
+.navbar-inverse {
+    background-color: #256cb8;
+    border-top: 1px solid #3680d0;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+    border-radius: 0px;
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}

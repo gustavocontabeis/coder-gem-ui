@@ -4,6 +4,6 @@ export class Pessoa {
 	genero: string;
 	altura: number;
 	salario: number;
-	ativo: boolean;
+	ativo: boolean = false;
 	dataDeNacimento: Date;
 }

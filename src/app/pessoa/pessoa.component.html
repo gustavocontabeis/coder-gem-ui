@@ -4,7 +4,7 @@
         <button type="button" pButton="" icon="pi pi-plus" (click)="novo()" label="Novo"></button>
     </p-menubar>
 </div>
-
+{{pessoa | json}}
 <p-panel header="Pessoas">
     <p-table [value]="pessoas" [paginator]="true" [rows]="10">
         <ng-template pTemplate="header">
@@ -34,17 +34,17 @@
             </tr>
         </ng-template>
     </p-table>
-
 </p-panel>
 <p-dialog header="Usuário" [(visible)]="exibirDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade" [modal]="true"
     [style]="{width: '800px', height: '600px'}">
+    <form #pessoaForm="ngForm" (ngSubmit)="onSubmit(pessoaForm)">
     <div class="ui-g ui-fluid" *ngIf="pessoa">
         <div class="ui-g-12">
             <div class="ui-g-4 label">
                 <label id="label-id" for="id">Id</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="id" pKeyFilter="int" placeholder="Id" [(ngModel)]="pessoa.id">
+                <input id="id" name="id" pKeyFilter="int" pInputText placeholder="Id" [(ngModel)]="pessoa.id">
             </div>
         </div>
         <div class="ui-g-12">
@@ -52,7 +52,7 @@
                 <label id="label-nome" for="nome">Nome</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="nome" pInputText placeholder="Nome" [(ngModel)]="pessoa.nome" [required]="true">
+                <input id="nome" name="nome" #nome="ngModel" pInputText placeholder="Nome" [(ngModel)]="pessoa.nome" [required]="true" minlength="4" pattern="^[a-zA-Z]+$">
             </div>
         </div>
         <div class="ui-g-12">
@@ -60,7 +60,7 @@
                 <label id="label-genero" for="genero">Genero</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="genero" pInputText placeholder="Genero" [(ngModel)]="pessoa.genero">
+                <p-dropdown id="genero" name="genero" #genero="ngModel" [options]="generos" [(ngModel)]="pessoa.genero" [required]="true"></p-dropdown>
             </div>
         </div>
         <div class="ui-g-12">
@@ -68,7 +68,9 @@
                 <label id="label-altura" for="altura">Altura</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="altura" pInputText placeholder="Altura" [(ngModel)]="pessoa.altura">
+                <input id="altura" name="altura" #altura="ngModel" pInputText placeholder="Altura" pKeyFilter="num" [(ngModel)]="pessoa.altura" [required]="true" pattern="^\d+$">
+                <i class="pi pi-check" *ngIf="altura.valid"></i>
+                <i class="pi pi-times" *ngIf="altura.invalid"></i>
             </div>
         </div>
         <div class="ui-g-12">
@@ -76,7 +78,7 @@
                 <label id="label-salario" for="salario">Salario</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="salario" pInputText placeholder="Salario" [(ngModel)]="pessoa.salario">
+                <input id="salario" name="salario" pInputText placeholder="Salario" pKeyFilter="num" [(ngModel)]="pessoa.salario">
             </div>
         </div>
         <div class="ui-g-12">
@@ -84,7 +86,7 @@
                 <label id="label-ativo" for="ativo">Ativo</label>
             </div>
             <div class="ui-g-8 input">
-                <p-checkbox id="ativo" binary="true" [(ngModel)]="pessoa.ativo"></p-checkbox>
+                <p-checkbox id="ativo" binary="true" [(ngModel)]="pessoa.ativo" ></p-checkbox>
             </div>
         </div>
         <div class="ui-g-12">
@@ -92,7 +94,7 @@
                 <label id="label-dataDeNacimento" for="dataDeNacimento">Data de nacimento</label>
             </div>
             <div class="ui-g-8 input">
-                <p-calendar id="dataDeNacimento" dateFormat="dd/mm/yy" showTime="true" hourFormat="24" [(ngModel)]="pessoa.dataDeNacimento"></p-calendar>
+                <p-calendar id="dataDeNacimento" name="dataDeNacimento" dateFormat="dd/mm/yy" showTime="true" hourFormat="24" [(ngModel)]="pessoa.dataDeNacimento"></p-calendar>
             </div>
         </div>
         <div class="ui-g-12">
@@ -100,23 +102,15 @@
                 <label id="label-mae" for="mae">Mae</label>
             </div>
             <div class="ui-g-8 input">
-                <input id="mae" pInputText placeholder="Mae" [(ngModel)]="pessoa.mae">
-            </div>
-        </div>
-        <div class="ui-g-12"> 
-            <div class="ui-g-4 label">
-                <label id="label-filhos" for="filhos">Filhos</label>
-            </div>
-            <div class="ui-g-8 input">
-                <input id="filhos" pInputText placeholder="Filhos" [(ngModel)]="pessoa.filhos">
+                <p-dropdown id="mae" [options]="pessoas" [(ngModel)]="pessoa.mae" optionLabel="nome"></p-dropdown>
             </div>
         </div>
     </div>
+    </form>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="pi pi-check" (click)="salvar()" label="Salvar"></button>
-            <button type="button" pButton icon="pi pi-times" (click)="confirmarExcluir()" label="Excluir" class="ui-button-secondary"
-                *ngIf="pessoa.id"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="salvar()" label="Salvar" [disabled]="!pessoaForm.valid"></button>
+            <button type="button" pButton icon="pi pi-times" (click)="confirmarExcluir()" label="Excluir" class="ui-button-secondary" *ngIf="pessoa.id"></button>
         </div>
     </p-footer>
 </p-dialog>
