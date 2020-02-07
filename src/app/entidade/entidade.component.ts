@@ -20,6 +20,7 @@ export class EntidadeComponent implements OnInit {
   novoRegistro: boolean;
   aplicacoes: Aplicacao[] = [];
   aplicacoesItem: SelectItem[] = [];
+  idAplicacao: number;
 
   constructor(
     private router: Router,
@@ -31,8 +32,12 @@ export class EntidadeComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-        console.log(params['id']);
-        //this.termoId = (params['coTermo'] && params['coTermo'] != -1) ? Number(params['coTermo']) : null;
+      //console.log("id", params['id']);
+      //console.log("idAplicacao", params['idAplicacao']);
+      //this.idAplicacao = params['idAplicacao'] ? Number(params['idAplicacao']) : null;
+      //this.termoId = (params['coTermo'] && params['coTermo'] != -1) ? Number(params['coTermo']) : null;
+      //console.log(params['idAplicacao'], params['idAplicacao'], );
+      this.idAplicacao = params['idAplicacao'] ? Number(params['idAplicacao']) : null;
     });
     
     this.exibirDialog = false;
@@ -42,13 +47,11 @@ export class EntidadeComponent implements OnInit {
     this.entidade.aplicacao = new Aplicacao();
 
     this.aplicacaoService.consultar().subscribe(resposta => {
+      console.log(resposta);
       this.aplicacoes = resposta as Aplicacao[];
-      console.log('1', this.aplicacoes);
       this.aplicacoesItem = this.aplicacoes.map(function(entry){
         return {label: entry.nome, value: entry};
       });
-      console.log('2', this.aplicacoesItem);
-      console.log(this.entidades);
     }, error => {
       console.log(error);
       alert('erro entidades.' + error);
@@ -57,13 +60,21 @@ export class EntidadeComponent implements OnInit {
   }
 
   consultar() {
-    this.entidadeService.consultar().subscribe(resposta => {
-      this.entidades = resposta as Entidade[];
-      console.log(this.entidades);
-    }, error => {
-      console.log(error);
-      alert('erro entidades.' + error);
-    });
+    if(this.idAplicacao){
+      this.entidadeService.consultarPorAplicacao(this.idAplicacao).subscribe(resposta => {
+        this.entidades = resposta as Entidade[];
+      }, error => {
+        console.log(error);
+        alert('erro entidades.' + error);
+      });
+    } else {
+      this.entidadeService.consultar().subscribe(resposta => {
+        this.entidades = resposta as Entidade[];
+      }, error => {
+        console.log(error);
+        alert('erro entidades.' + error);
+      });
+    }
   }
 
   novo() {
@@ -75,12 +86,7 @@ export class EntidadeComponent implements OnInit {
     this.novoRegistro = true;
     this.exibirDialog = true;
     this.entidade = entidade;
-    console.log('sssssssssss');
-    
-    console.log(entidade);
-
     //this.entidade.aplicacao = new Aplicacao();
-
   }
 
   salvar() {

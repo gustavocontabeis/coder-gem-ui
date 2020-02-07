@@ -30,6 +30,7 @@
     </p-panel>
     <p-dialog header="Entidade" [(visible)]="exibirDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade" [modal]="true"
         [style]="{width: '800px', height: '600px'}">
+        {{entidade | json}}
         <form #entidadeForm="ngForm" (ngSubmit)="onSubmit(entidadeForm)">
             <div class="ui-g ui-fluid" *ngIf="entidade">
                 <div class="ui-g-12">

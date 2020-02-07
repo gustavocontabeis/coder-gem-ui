@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://codersistemas.com.br/coder-gem'
+  apiUrl: 'http://codersistemas.com.br:8084/coder-gem'
 };

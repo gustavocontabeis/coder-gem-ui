@@ -24,6 +24,10 @@ export class EntidadeService {
     return this.httpClient.get(this.apiUrl);
   }
 
+  consultarPorAplicacao(idAplicacao: Number) {
+    return this.httpClient.get(this.apiUrl+"/aplicacao/"+idAplicacao);
+  }
+
   excluir(entidade: Entidade) {
     console.log('excluir', entidade);
     return this.httpClient.delete(this.apiUrl + '/' + entidade.id);

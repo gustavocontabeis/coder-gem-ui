@@ -95,8 +95,7 @@ export class AplicacaoComponent implements OnInit {
   }
 
   entidades(aplicacao: Aplicacao){
-    console.log(aplicacao);
-    this.router.navigate(['/entidade/aplicacao', aplicacao.id]);
+    this.router.navigate(['/entidades/aplicacao/', aplicacao.id]);
   }
 
 }

@@ -25,28 +25,20 @@ export class HeaderComponent implements OnInit {
           {
             label: 'Pessoa',
             icon: 'pi pi-fw pi-plus',
-            url: 'pessoa'
+            url: 'pessoas'
           },
           {
             label: 'Aplicação',
             icon: 'pi pi-fw pi-plus',
-            url: 'aplicacao'
+            url: 'aplicacoes'
           },
           {
             label: 'Entidade',
             icon: 'pi pi-fw pi-plus',
-            url: 'entidade'
+            url: 'entidades'
           },
         ]
       },
-      {
-        label: 'Edit',
-        icon: 'pi pi-fw pi-pencil',
-        items: [
-          { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-          { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-        ]
-      }
     ];
   }
 }
