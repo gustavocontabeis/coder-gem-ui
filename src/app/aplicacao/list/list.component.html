@@ -1,0 +1,27 @@
+<div>
+    <p-toast></p-toast>
+    <p-menubar>
+        <button type="button" pButton="" icon="pi pi-plus" [routerLink]="['/aplicacao/add']" label="Novo"></button>
+    </p-menubar>
+    <br>
+    <p-panel header="Aplicacoes">
+        <p-table [value]="aplicacoes" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header">
+                <tr class="coder-colunas-titulos">
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-aplicacao="">
+                <tr>
+                    <td style="text-align: right;">{{aplicacao.id}}</td>
+                    <td>{{aplicacao.nome}}</td>
+                    <td>
+                        <button pButton icon="pi pi-pencil" [routerLink]="['/aplicacao/add', aplicacao.id]" title="Selecionar" class="ui-button-secondary" ></button> 
+                        <button pButton icon="pi pi-list" [routerLink]="['/entidades/aplicacao/', aplicacao.id]" title="Entidades" style="margin-left: 5px;" class="ui-button-secondary"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-panel>

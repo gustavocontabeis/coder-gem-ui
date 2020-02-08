@@ -26,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
 import { AplicacaoComponent } from './aplicacao/aplicacao.component';
 import { EntidadeComponent } from './entidade/entidade.component';
 import {DropdownModule} from 'primeng/dropdown';
+import { AplicacaoModule } from './aplicacao/aplicacao.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {DropdownModule} from 'primeng/dropdown';
     CheckboxModule,
     InputMaskModule,
     ConfirmDialogModule,
-    DropdownModule
+    DropdownModule,
+    AplicacaoModule
   ],
   providers: [MessageService, ConfirmationService, PessoaService],
   bootstrap: [AppComponent]

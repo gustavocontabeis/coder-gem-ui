@@ -19,6 +19,11 @@ export class AplicacaoService {
     return this.httpClient.post(this.apiUrl, aplicacao);
   }
 
+  buscar(id: number) {
+    console.log('buscar', this.apiUrl);
+    return this.httpClient.get(this.apiUrl + '/' + id);
+  }
+
   consultar() {
     console.log('consultar', this.apiUrl);
     return this.httpClient.get(this.apiUrl);

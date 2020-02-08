@@ -18,8 +18,9 @@
                     <td style="text-align: right;">{{aplicacao.id}}</td>
                     <td>{{aplicacao.nome}}</td>
                     <td>
-                        <button type="button" pButton icon="pi pi-pencil" (click)="exibirModal(aplicacao)" title="Selecionar"></button>
-                        <button type="button" pButton icon="pi pi-arrow-right" (click)="entidades(aplicacao)" title="Entidades" style="margin-left: 5px;"></button>
+                        <button pButton icon="pi pi-pencil" (click)="exibirModal(aplicacao)" title="Selecionar" class="ui-button-secondary"></button>
+                        <button pButton icon="pi pi-arrow-right" (click)="entidades(aplicacao)" title="Entidades" style="margin-left: 5px;" class="ui-button-secondary"></button>
+                        <button pButton icon="pi pi-pencil" [routerLink]="['/aplicacao/add', aplicacao.id]" title="Selecionar" class="ui-button-secondary" ></button> 
                     </td>
                 </tr>
             </ng-template>

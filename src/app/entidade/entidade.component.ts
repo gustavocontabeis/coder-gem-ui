@@ -32,11 +32,6 @@ export class EntidadeComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      //console.log("id", params['id']);
-      //console.log("idAplicacao", params['idAplicacao']);
-      //this.idAplicacao = params['idAplicacao'] ? Number(params['idAplicacao']) : null;
-      //this.termoId = (params['coTermo'] && params['coTermo'] != -1) ? Number(params['coTermo']) : null;
-      //console.log(params['idAplicacao'], params['idAplicacao'], );
       this.idAplicacao = params['idAplicacao'] ? Number(params['idAplicacao']) : null;
     });
     
@@ -60,8 +55,9 @@ export class EntidadeComponent implements OnInit {
   }
 
   consultar() {
-    if(this.idAplicacao){
+    if (this.idAplicacao) {
       this.entidadeService.consultarPorAplicacao(this.idAplicacao).subscribe(resposta => {
+        console.log(resposta);
         this.entidades = resposta as Entidade[];
       }, error => {
         console.log(error);
@@ -71,7 +67,7 @@ export class EntidadeComponent implements OnInit {
       this.entidadeService.consultar().subscribe(resposta => {
         this.entidades = resposta as Entidade[];
       }, error => {
-        console.log(error);
+        console.log(">>>", error);
         alert('erro entidades.' + error);
       });
     }

@@ -19,7 +19,7 @@
             <ng-template pTemplate="body" let-entidade>
                 <tr>
                     <td style="text-align: right;">{{entidade.id}}</td>
-                    <td><a [routerLink]="['/aplicacoes', entidade.aplicacao.id]">{{entidade.aplicacao.nome}}</a></td>
+                    <td><a [routerLink]="['/aplicacao/add', entidade.aplicacao.id]">{{entidade.aplicacao.nome}}</a></td>
                     <td>{{entidade.nome}}</td>
                     <td>{{entidade.rotulo}}</td>
                     <td>{{entidade.tabela}}</td>

@@ -8,6 +8,7 @@ import { AplicacaoComponent } from './aplicacao/aplicacao.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'pessoas', component: PessoaComponent },
+  { path: 'aplicacao', loadChildren: './aplicacao/aplicacao.module#AplicacaoModule'},
   { path: 'aplicacoes', component: AplicacaoComponent },
   { path: 'aplicacoes/:id', component: AplicacaoComponent },
   { path: 'entidades', component: EntidadeComponent },
