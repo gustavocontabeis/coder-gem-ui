@@ -9,6 +9,7 @@
             <ng-template pTemplate="header">
                 <tr>
                     <th>Id</th>
+                    <th>Aplicação</th>
                     <th>Nome</th>
                     <th>Rotulo</th>
                     <th>Tabela</th>
@@ -18,6 +19,7 @@
             <ng-template pTemplate="body" let-entidade>
                 <tr>
                     <td style="text-align: right;">{{entidade.id}}</td>
+                    <td><a [routerLink]="['/aplicacoes', entidade.aplicacao.id]">{{entidade.aplicacao.nome}}</a></td>
                     <td>{{entidade.nome}}</td>
                     <td>{{entidade.rotulo}}</td>
                     <td>{{entidade.tabela}}</td>

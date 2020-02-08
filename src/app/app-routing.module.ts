@@ -7,8 +7,9 @@ import { AplicacaoComponent } from './aplicacao/aplicacao.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'pessoa', component: PessoaComponent },
+  { path: 'pessoas', component: PessoaComponent },
   { path: 'aplicacoes', component: AplicacaoComponent },
+  { path: 'aplicacoes/:id', component: AplicacaoComponent },
   { path: 'entidades', component: EntidadeComponent },
   { path: 'entidades/aplicacao/:idAplicacao', component: EntidadeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
